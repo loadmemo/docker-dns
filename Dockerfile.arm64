@@ -1,6 +1,5 @@
 FROM multiarch/alpine:aarch64-edge
 MAINTAINER "zikloa <mengliu@me.com>"
-WORKDIR ../
 ADD requirements.txt .
 RUN apk add --update python python-dev gcc libgcc libc-dev py2-pip libev && \
     pip install -r requirements.txt && \
