@@ -17,12 +17,12 @@ Run some containers:
 
 Start up dockerdns:
 
-    % docker run -d --name dns -v /var/run/docker.sock:/docker.sock phensley/docker-dns \
+    % docker run -d --name dns -v /var/run/docker.sock:/docker.sock zikloa/docker-dns-arm \
         --domain example.com
 
 If your Docker instance uses TLS:
 
-    % docker run --name dns -e DOCKER_HOST=https://<host>:<port> --rm phensley/docker-dns --domain example.com
+    % docker run --name dns -e DOCKER_HOST=https://<host>:<port> --rm zikloa/docker-dns-arm --domain example.com
 
 Start more containers:
 
@@ -80,7 +80,7 @@ Names not rooted in `example.com` will be resolved recursively using Google's re
 
 To disable recursive resolution, use the `--no-recursion` flag:
 
-    % docker run --name dns -v /var/run/docker.sock:/docker.sock phensley/docker-dns \
+    % docker run --name dns -v /var/run/docker.sock:/docker.sock zikloa/docker-dns-arm \
         --domain example.com --no-recursion
 
 Now names not rooted in `example.com` will fail to resolve:
@@ -92,14 +92,14 @@ Now names not rooted in `example.com` will fail to resolve:
 
 Pointing a subdomain to some IP
 
-    % docker run --name dns -v /var/run/docker.sock:/docker.sock phensley/docker-dns \
+    % docker run --name dns -v /var/run/docker.sock:/docker.sock zikloa/docker-dns-arm \
         --domain example.com --record localhost:127.0.0.1
 
     # This will cause localhost.example.com to resolve to 127.0.0.1
 
 Pointing all subdomains to some IP
 
-    % docker run --name dns -v /var/run/docker.sock:/docker.sock phensley/docker-dns \
+    % docker run --name dns -v /var/run/docker.sock:/docker.sock zikloa/docker-dns-arm \
         --domain example.com --record *:172.18.0.4
 
     # This makes everything not explicitly set as a subdomain to resolve to 172.18.0.4.
