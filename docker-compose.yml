@@ -1,7 +1,7 @@
 version: '2'
 services:
   dns:
-    image: phensley/docker-dns
+    image: zikloa/docker-dns-arm
     command: --domain example.com 
     volumes:
      - "/var/run/docker.sock:/docker.sock"
