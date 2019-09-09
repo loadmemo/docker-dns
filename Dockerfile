@@ -1,5 +1,5 @@
-FROM alpine:latest
-MAINTAINER "Patrick Hensley <pathensley@gmail.com>"
+FROM multiarch/alpine:armhf-edge
+MAINTAINER "zikloa <mengliu@me.com>"
 ADD requirements.txt .
 RUN apk add --update python python-dev gcc libgcc libc-dev py2-pip libev && \
     pip install -r requirements.txt && \
